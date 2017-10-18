@@ -7,7 +7,7 @@ Package.describe({
   git: 'https://github.com/imajus/meteor-simple-schema-messages-i18n',
   // By default, Meteor will default to using README.md for documentation.
   // To avoid submitting documentation, set this field to null.
-  documentation: 'README.md'
+  documentation: null//'README.md'
 });
 
 Npm.depends({
@@ -16,7 +16,7 @@ Npm.depends({
 
 Package.onUse(function(api) {
   api.versionsFrom('1.5.2.2');
-  api.use('ecmascript', 'tap:i18n');
+  api.use(['ecmascript', 'tap:i18n@1.8.1']);
   api.use('tracker', 'client');
   api.mainModule('ssm-i18n.client.js', 'client');
   api.mainModule('ssm-i18n.server.js', 'server');
