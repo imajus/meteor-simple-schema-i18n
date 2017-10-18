@@ -1,5 +1,5 @@
-// Write your package code here!
+import NodeSimpleSchema from 'simpl-schema';
 
-// Variables exported by this module can be imported by other packages and
-// applications. See simple-schema-errors-i18n-tests.js for an example of importing.
-export const name = 'simple-schema-errors-i18n';
+import './ssm-defaults.js';
+
+export const SimpleSchema = NodeSimpleSchema;

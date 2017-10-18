@@ -1,5 +1,20 @@
-// Write your package code here!
+import { Tracker } from 'meteor/tracker';
+import { TAPi18n } from 'meteor/tap:i18n';
+import NodeSimpleSchema from 'simpl-schema';
 
-// Variables exported by this module can be imported by other packages and
-// applications. See simple-schema-errors-i18n-tests.js for an example of importing.
-export const name = 'simple-schema-errors-i18n';
+import './ssm-defaults.js';
+
+class SimpleSchemaWrapper extends NodeSimpleSchema {
+
+  constructor(schema = {}, options = {}) {
+    super(schema, _.defaults(options, { tracker: Tracker }));
+    //TODO: Consider instance to be collected by GC
+    this.TAPi18nComputation = Tracker.autorun(() => {
+      const lang = TAPi18n.getLanguage();
+      this.messageBox.setLanguage(lang);
+    });
+  }
+
+}
+
+export const SimpleSchema = SimpleSchemaWrapper;
