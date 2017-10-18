@@ -19,6 +19,6 @@ class SimpleSchemaWrapper extends NodeSimpleSchema {
 }
 
 SimpleSchemaWrapper.debug = Meteor.isDevelopment;
-SimpleSchemaWrapper.extendOptions(['autoform']);
+SimpleSchemaWrapper.extendOptions(['autoform', 'denyUpdate', 'denyInsert']);
 
 export const SimpleSchema = SimpleSchemaWrapper;
