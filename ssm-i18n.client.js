@@ -10,10 +10,10 @@ class SimpleSchemaWrapper extends NodeSimpleSchema {
   constructor(schema = {}, options = {}) {
     super(schema, _.defaults(options, { tracker: Tracker }));
     //TODO: Consider instance to be collected by GC
-    // this.TAPi18nComputation = Tracker.autorun(() => {
-    //   const lang = TAPi18n.getLanguage();
-    //   this.messageBox.setLanguage(lang);
-    // });
+    this.TAPi18nComputation = Tracker.autorun(() => {
+      const lang = TAPi18n.getLanguage();
+      this.messageBox.setLanguage(lang);
+    });
   }
 
 }
