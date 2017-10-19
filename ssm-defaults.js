@@ -27,7 +27,7 @@ Meteor.startup(() => {
   const messages =_.chain(TAPi18n.getLanguages() || [])
   .pairs()
   .map(([code, labels]) => {
-    const i18n = _.object(errors.map(error => [error, __(`simple-schema-i18n.${error}`, {}, code)]));
+    const i18n = _.object(errors.map(error => [error, TAPi18n.__(`simple-schema-i18n.${error}`, {}, code)]));
     return [code, i18n];
   })
   .object()

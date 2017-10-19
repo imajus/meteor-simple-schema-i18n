@@ -1,6 +1,6 @@
 Package.describe({
   name: 'imajus:simple-schema-i18n',
-  version: '0.0.6',
+  version: '0.0.7',
   // Brief, one-line summary of the package.
   summary: 'SimpleSchema messages translations using tap:i18n',
   // URL to the Git repository containing the source code for this package.
