@@ -1,14 +1,18 @@
 # Overview
 
-Support Node SimpleSchema package error messages i18n using TAPi18n package. Reactively depends on `TAPi18n.getLanguage()` on the Client.
+Support Node [SimpleSchema](https://github.com/aldeed/node-simple-schema) validation messages i18n using [TAPi18n](https://github.com/TAPevents/tap-i18n) package. Reactively depends on `TAPi18n.getLanguage()` on the Client.
 
 ## Installation
 
-> meteor add imajus:simple-schema-i18n
+```bash
+meteor add imajus:simple-schema-i18n
+```
 
 And, if `tap:i18n` is not in the project yet:
 
-> meteor add tap:i18n
+```bash
+meteor add tap:i18n
+```
 
 ## Features
 
@@ -88,3 +92,6 @@ const schema = new SimpleSchema({ /*…*/ })
 
 Obviously, you also need to add `tap:i18n` Meteor package dependency and create actual i18n files.
 
+## Known issues
+
+For some reason I couldn't embed initial translations in package itself. TAPi18n currently [doesn't work well](https://github.com/TAPevents/tap-i18n/issues/143) on package level, and as far as I can see package author is not willing to fix any bugs in the nearest future. That's why I've switched to project level i18n files instead.
