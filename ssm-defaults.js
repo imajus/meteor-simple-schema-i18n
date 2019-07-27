@@ -1,7 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { TAPi18n } from 'meteor/tap:i18n';
 import { _ } from 'meteor/underscore';
-import NodeSimpleSchema from 'simpl-schema';
 
 import './buffer-fix.js';
 

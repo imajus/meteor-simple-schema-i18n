@@ -1,24 +1,16 @@
 import { Meteor } from 'meteor/meteor';
 import { Tracker } from 'meteor/tracker';
-import { TAPi18n } from 'meteor/tap:i18n';
-import NodeSimpleSchema from 'simpl-schema';
+import { _ } from 'meteor/underscore';
 
 import './ssm-defaults.js';
+import { schemas } from './schemas-tracker.client.js';
 
-class SimpleSchemaWrapper extends NodeSimpleSchema {
-
-  constructor(schema = {}, options = {}) {
-    super(schema, _.defaults(options, { tracker: Tracker }));
-    //TODO: Consider instance to be collected by GC
-    this.TAPi18nComputation = Tracker.autorun(() => {
-      const lang = TAPi18n.getLanguage();
-      this.messageBox.setLanguage(lang);
-    });
+export const SimpleSchemai18n = {
+  SimpleSchema: null,
+  create(schema = {}, options = {}) {
+    _.extend(options, { tracker: Tracker });
+    const instance = new this.SimpleSchema(schema, options);
+    schemas.push(instance);
+    return instance;
   }
-
 }
-
-SimpleSchemaWrapper.debug = Meteor.isDevelopment;
-SimpleSchemaWrapper.extendOptions(['autoform', 'denyUpdate', 'denyInsert']);
-
-export const SimpleSchema = SimpleSchemaWrapper;

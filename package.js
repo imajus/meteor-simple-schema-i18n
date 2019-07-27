@@ -11,7 +11,7 @@ Package.describe({
 });
 
 Npm.depends({
-  'simpl-schema': '0.3.1',
+  // 'simpl-schema': '0.3.1',
   'buffer': '5.0.8'
 });
 
