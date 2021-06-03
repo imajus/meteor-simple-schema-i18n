@@ -19,7 +19,7 @@ Package.onUse(function(api) {
   api.versionsFrom('1.4.4.3');
   api.use(['ecmascript', 'tap:i18n@1.8.1']);
   api.use(['tracker', 'templating@1.3.2'], 'client');
-  api.add_files('package-tap.i18n');
+  api.addFiles('package-tap.i18n');
   api.mainModule('ssm-i18n.client.js', 'client');
   api.mainModule('ssm-i18n.server.js', 'server');
 });
